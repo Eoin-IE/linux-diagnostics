@@ -479,16 +479,15 @@ def main():
         "top": check_top(),
     }
 
-    # Example of accessing results[check_top()] or results["loadavg"]
-    load_result = results["loadavg"]
-
     print("--- Diagnostic Summary ---")
-    print(f"Check: {load_result['check']}")
-    print(f"Status: {load_result['status']}")
-    print(f"Message: {load_result['message']}")
-    print("Metrics:")
-    for key, value in load_result["metrics"].items():
-        print(f"  - {key}: {value}")
+    for check_data in results.values():
+        print(f"\nCheck: {check_data['check']}")
+        print(f"Status: {check_data['status']}")
+        print(f"Message: {check_data['message']}")
+        print("Metrics:")
+        for key, value in check_data["metrics"].items():
+            print(f"  - {key}: {value}")
+        print("-" * 40)
 
 
 if __name__ == "__main__":
