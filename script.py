@@ -206,7 +206,6 @@ def check_iostat():
     result = subprocess.run(
         "iostat -xz 1 2", shell=True, capture_output=True, text=True, check=False
     )
-    print(result.stdout)
 
     lines = result.stdout.splitlines()
     device_header_count = 0
